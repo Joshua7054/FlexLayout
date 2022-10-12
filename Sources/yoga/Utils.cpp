@@ -7,20 +7,20 @@
 
 #include "Utils.h"
 
-YGFlexDirection YGFlexDirectionCross(
-    const YGFlexDirection flexDirection,
-    const YGDirection direction) {
-  return YGFlexDirectionIsColumn(flexDirection)
-      ? YGResolveFlexDirection(YGFlexDirectionRow, direction)
-      : YGFlexDirectionColumn;
+FILTFlexDirection FILTFlexDirectionCross(
+    const FILTFlexDirection flexDirection,
+    const FILTDirection direction) {
+  return FILTFlexDirectionIsColumn(flexDirection)
+      ? FILTResolveFlexDirection(FILTFlexDirectionRow, direction)
+      : FILTFlexDirectionColumn;
 }
 
-bool YGValueEqual(const YGValue a, const YGValue b) {
+bool FILTValueEqual(const FILTValue a, const FILTValue b) {
   if (a.unit != b.unit) {
     return false;
   }
 
-  if (a.unit == YGUnitUndefined ||
+  if (a.unit == FILTUnitUndefined ||
       (std::isnan(a.value) && std::isnan(b.value))) {
     return true;
   }

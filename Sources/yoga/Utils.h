@@ -6,8 +6,8 @@
  */
 
 #pragma once
-#include "YGNode.h"
-#include "Yoga-internal.h"
+#include "FILTNode.h"
+#include "Filates-internal.h"
 
 // This struct is an helper model to hold the data for step 4 of flexbox
 // algo, which is collecting the flex items in a line.
@@ -35,13 +35,13 @@
 // - relativeChildren: Maintain a vector of the child nodes that can shrink
 // and/or grow.
 
-struct YGCollectFlexItemsRowValues {
+struct FILTCollectFlexItemsRowValues {
   uint32_t itemsOnLine;
   float sizeConsumedOnCurrentLine;
   float totalFlexGrowFactors;
   float totalFlexShrinkScaledFactors;
   float endOfLineIndex;
-  std::vector<YGNodeRef> relativeChildren;
+  std::vector<FILTNodeRef> relativeChildren;
   float remainingFreeSpace;
   // The size of the mainDim for the row after considering size, padding, margin
   // and border of flex items. This is used to calculate maxLineDim after going
@@ -52,51 +52,51 @@ struct YGCollectFlexItemsRowValues {
   float crossDim;
 };
 
-bool YGValueEqual(const YGValue a, const YGValue b);
+bool FILTValueEqual(const FILTValue a, const FILTValue b);
 
-YGFlexDirection YGFlexDirectionCross(
-    const YGFlexDirection flexDirection,
-    const YGDirection direction);
+FILTFlexDirection FILTFlexDirectionCross(
+    const FILTFlexDirection flexDirection,
+    const FILTDirection direction);
 
-inline bool YGFlexDirectionIsRow(const YGFlexDirection flexDirection) {
-  return flexDirection == YGFlexDirectionRow ||
-      flexDirection == YGFlexDirectionRowReverse;
+inline bool FILTFlexDirectionIsRow(const FILTFlexDirection flexDirection) {
+  return flexDirection == FILTFlexDirectionRow ||
+      flexDirection == FILTFlexDirectionRowReverse;
 }
 
-inline float YGResolveValue(const YGValue value, const float parentSize) {
+inline float FILTResolveValue(const FILTValue value, const float parentSize) {
   switch (value.unit) {
-    case YGUnitUndefined:
-    case YGUnitAuto:
-      return YGUndefined;
-    case YGUnitPoint:
+    case FILTUnitUndefined:
+    case FILTUnitAuto:
+      return FILTUndefined;
+    case FILTUnitPoint:
       return value.value;
-    case YGUnitPercent:
+    case FILTUnitPercent:
       return value.value * parentSize / 100.0f;
   }
-  return YGUndefined;
+  return FILTUndefined;
 }
 
-inline bool YGFlexDirectionIsColumn(const YGFlexDirection flexDirection) {
-  return flexDirection == YGFlexDirectionColumn ||
-      flexDirection == YGFlexDirectionColumnReverse;
+inline bool FILTFlexDirectionIsColumn(const FILTFlexDirection flexDirection) {
+  return flexDirection == FILTFlexDirectionColumn ||
+      flexDirection == FILTFlexDirectionColumnReverse;
 }
 
-inline YGFlexDirection YGResolveFlexDirection(
-    const YGFlexDirection flexDirection,
-    const YGDirection direction) {
-  if (direction == YGDirectionRTL) {
-    if (flexDirection == YGFlexDirectionRow) {
-      return YGFlexDirectionRowReverse;
-    } else if (flexDirection == YGFlexDirectionRowReverse) {
-      return YGFlexDirectionRow;
+inline FILTFlexDirection FILTResolveFlexDirection(
+    const FILTFlexDirection flexDirection,
+    const FILTDirection direction) {
+  if (direction == FILTDirectionRTL) {
+    if (flexDirection == FILTFlexDirectionRow) {
+      return FILTFlexDirectionRowReverse;
+    } else if (flexDirection == FILTFlexDirectionRowReverse) {
+      return FILTFlexDirectionRow;
     }
   }
 
   return flexDirection;
 }
 
-static inline float YGResolveValueMargin(
-    const YGValue value,
+static inline float FILTResolveValueMargin(
+    const FILTValue value,
     const float parentSize) {
-  return value.unit == YGUnitAuto ? 0 : YGResolveValue(value, parentSize);
+  return value.unit == FILTUnitAuto ? 0 : FILTResolveValue(value, parentSize);
 }

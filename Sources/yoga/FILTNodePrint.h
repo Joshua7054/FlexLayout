@@ -7,16 +7,16 @@
 #pragma once
 #include <string>
 
-#include "Yoga.h"
+#include "Filates.h"
 
 namespace facebook {
-namespace yoga {
+namespace filates {
 
-void YGNodeToString(
+void FILTNodeToString(
     std::string* str,
-    YGNodeRef node,
-    YGPrintOptions options,
+    FILTNodeRef node,
+    FILTPrintOptions options,
     uint32_t level);
 
-} // namespace yoga
+} // namespace filates
 } // namespace facebook

@@ -10,55 +10,55 @@
 #include <array>
 #include <cmath>
 #include <vector>
-#include "Yoga.h"
+#include "Filates.h"
 
-using YGVector = std::vector<YGNodeRef>;
+using FILTVector = std::vector<FILTNodeRef>;
 
-YG_EXTERN_C_BEGIN
+FILT_EXTERN_C_BEGIN
 
-WIN_EXPORT float YGRoundValueToPixelGrid(const float value,
+WIN_EXPORT float FILTRoundValueToPixelGrid(const float value,
                                          const float pointScaleFactor,
                                          const bool forceCeil,
                                          const bool forceFloor);
 
-YG_EXTERN_C_END
+FILT_EXTERN_C_END
 
-extern const std::array<YGEdge, 4> trailing;
-extern const std::array<YGEdge, 4> leading;
-extern bool YGValueEqual(const YGValue a, const YGValue b);
-extern const YGValue YGValueUndefined;
-extern const YGValue YGValueAuto;
-extern const YGValue YGValueZero;
+extern const std::array<FILTEdge, 4> trailing;
+extern const std::array<FILTEdge, 4> leading;
+extern bool FILTValueEqual(const FILTValue a, const FILTValue b);
+extern const FILTValue FILTValueUndefined;
+extern const FILTValue FILTValueAuto;
+extern const FILTValue FILTValueZero;
 
 template <std::size_t size>
-bool YGValueArrayEqual(
-    const std::array<YGValue, size> val1,
-    const std::array<YGValue, size> val2) {
+bool FILTValueArrayEqual(
+    const std::array<FILTValue, size> val1,
+    const std::array<FILTValue, size> val2) {
   bool areEqual = true;
   for (uint32_t i = 0; i < size && areEqual; ++i) {
-    areEqual = YGValueEqual(val1[i], val2[i]);
+    areEqual = FILTValueEqual(val1[i], val2[i]);
   }
   return areEqual;
 }
 
-struct YGCachedMeasurement {
+struct FILTCachedMeasurement {
   float availableWidth;
   float availableHeight;
-  YGMeasureMode widthMeasureMode;
-  YGMeasureMode heightMeasureMode;
+  FILTMeasureMode widthMeasureMode;
+  FILTMeasureMode heightMeasureMode;
 
   float computedWidth;
   float computedHeight;
 
-  YGCachedMeasurement()
+  FILTCachedMeasurement()
       : availableWidth(0),
         availableHeight(0),
-        widthMeasureMode((YGMeasureMode)-1),
-        heightMeasureMode((YGMeasureMode)-1),
+        widthMeasureMode((FILTMeasureMode)-1),
+        heightMeasureMode((FILTMeasureMode)-1),
         computedWidth(-1),
         computedHeight(-1) {}
 
-  bool operator==(YGCachedMeasurement measurement) const {
+  bool operator==(FILTCachedMeasurement measurement) const {
     bool isEqual = widthMeasureMode == measurement.widthMeasureMode &&
         heightMeasureMode == measurement.heightMeasureMode;
 
@@ -84,16 +84,16 @@ struct YGCachedMeasurement {
 
 // This value was chosen based on empiracle data. Even the most complicated
 // layouts should not require more than 16 entries to fit within the cache.
-#define YG_MAX_CACHED_RESULT_COUNT 16
+#define FILT_MAX_CACHED_RESULT_COUNT 16
 
-struct YGConfig {
-  bool experimentalFeatures[YGExperimentalFeatureCount + 1];
+struct FILTConfig {
+  bool experimentalFeatures[FILTExperimentalFeatureCount + 1];
   bool useWebDefaults;
   bool useLegacyStretchBehaviour;
   bool shouldDiffLayoutWithoutLegacyStretchBehaviour;
   float pointScaleFactor;
-  YGLogger logger;
-  YGNodeClonedFunc cloneNodeCallback;
+  FILTLogger logger;
+  FILTNodeClonedFunc cloneNodeCallback;
   void* context;
 };
 
@@ -101,9 +101,9 @@ static const float kDefaultFlexGrow = 0.0f;
 static const float kDefaultFlexShrink = 0.0f;
 static const float kWebDefaultFlexShrink = 1.0f;
 
-extern bool YGFloatsEqual(const float a, const float b);
-extern bool YGValueEqual(const YGValue a, const YGValue b);
-extern const YGValue* YGComputedEdgeValue(
-    const std::array<YGValue, YGEdgeCount>& edges,
-    const YGEdge edge,
-    const YGValue* const defaultValue);
+extern bool FILTFloatsEqual(const float a, const float b);
+extern bool FILTValueEqual(const FILTValue a, const FILTValue b);
+extern const FILTValue* FILTComputedEdgeValue(
+    const std::array<FILTValue, FILTEdgeCount>& edges,
+    const FILTEdge edge,
+    const FILTValue* const defaultValue);

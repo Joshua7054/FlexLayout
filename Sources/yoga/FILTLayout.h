@@ -7,15 +7,15 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 #pragma once
-#include "Yoga-internal.h"
+#include "Filates-internal.h"
 
-struct YGLayout {
+struct FILTLayout {
   std::array<float, 4> position;
   std::array<float, 2> dimensions;
   std::array<float, 6> margin;
   std::array<float, 6> border;
   std::array<float, 6> padding;
-  YGDirection direction;
+  FILTDirection direction;
 
   uint32_t computedFlexBasisGeneration;
   float computedFlexBasis;
@@ -24,19 +24,19 @@ struct YGLayout {
   // Instead of recomputing the entire layout every single time, we
   // cache some information to break early when nothing changed
   uint32_t generationCount;
-  YGDirection lastParentDirection;
+  FILTDirection lastParentDirection;
 
   uint32_t nextCachedMeasurementsIndex;
-  std::array<YGCachedMeasurement, YG_MAX_CACHED_RESULT_COUNT>
+  std::array<FILTCachedMeasurement, FILT_MAX_CACHED_RESULT_COUNT>
       cachedMeasurements;
   std::array<float, 2> measuredDimensions;
 
-  YGCachedMeasurement cachedLayout;
+  FILTCachedMeasurement cachedLayout;
   bool didUseLegacyFlag;
   bool doesLegacyStretchFlagAffectsLayout;
 
-  YGLayout();
+  FILTLayout();
 
-  bool operator==(YGLayout layout) const;
-  bool operator!=(YGLayout layout) const;
+  bool operator==(FILTLayout layout) const;
+  bool operator!=(FILTLayout layout) const;
 };
