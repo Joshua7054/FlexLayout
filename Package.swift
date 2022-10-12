@@ -7,22 +7,22 @@ let package = Package(
   name: "FlexLayout",
   products: [
     .library(name: "FlexLayout", targets: ["FlexLayout"]),
-    .library(name: "FlexLayoutYoga", targets: ["FlexLayoutYoga"]),
-    .library(name: "FlexLayoutYogaKit", targets: ["FlexLayoutYogaKit"])
+    .library(name: "FlexLayoutFilates", targets: ["FlexLayoutFilates"]),
+    .library(name: "FlexLayoutFilatesKit", targets: ["FlexLayoutFilatesKit"])
   ],
   dependencies: [
   ],
   targets: [
     .target(
       name: "FlexLayout",
-      dependencies: ["FlexLayoutYoga", "FlexLayoutYogaKit"],
+      dependencies: ["FlexLayoutFilates", "FlexLayoutFilatesKit"],
       path: "Sources/Swift",
       cSettings: [
         .define("FLEXLAYOUT_SWIFT_PACKAGE")
       ],
       cxxSettings: [
         .define("FLEXLAYOUT_SWIFT_PACKAGE"),
-        .headerSearchPath("include/yoga/"),
+        .headerSearchPath("include/filates/"),
         .headerSearchPath("./")
       ],
       swiftSettings: [
@@ -30,28 +30,28 @@ let package = Package(
       ]
     ),
     .target(
-      name: "FlexLayoutYoga",
+      name: "FlexLayoutFilates",
       dependencies: [],
-      path: "Sources/yoga",
+      path: "Sources/filates",
       cSettings: [
         .define("FLEXLAYOUT_SWIFT_PACKAGE")
       ],
       cxxSettings: [
         .define("FLEXLAYOUT_SWIFT_PACKAGE"),
-        .headerSearchPath("include/yoga/"),
+        .headerSearchPath("include/filates/"),
         .headerSearchPath("./")
       ]
     ),
     .target(
-      name: "FlexLayoutYogaKit",
-      dependencies: ["FlexLayoutYoga"],
-      path: "Sources/YogaKit",
+      name: "FlexLayoutFilatesKit",
+      dependencies: ["FlexLayoutFilates"],
+      path: "Sources/FilatesKit",
       cSettings: [
         .define("FLEXLAYOUT_SWIFT_PACKAGE")
       ],
       cxxSettings: [
         .define("FLEXLAYOUT_SWIFT_PACKAGE"),
-        .headerSearchPath("include/YogaKit/"),
+        .headerSearchPath("include/FilatesKit/"),
         .headerSearchPath("./")
       ]
     )

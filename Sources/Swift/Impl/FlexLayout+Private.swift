@@ -7,22 +7,22 @@
 //
 
 import UIKit
-import FlexLayoutYoga
+import FlexLayoutFilates
 
 extension Flex {
-    func valueOrUndefined(_ value: CGFloat?) -> YGValue {
+    func valueOrUndefined(_ value: CGFloat?) -> FILTValue {
         if let value = value {
-            return YGValue(value)
+            return FILTValue(value)
         } else {
-            return YGValueUndefined
+            return FILTValueUndefined
         }
     }
     
-    func valueOrAuto(_ value: CGFloat?) -> YGValue {
+    func valueOrAuto(_ value: CGFloat?) -> FILTValue {
         if let value = value {
-            return YGValue(value)
+            return FILTValue(value)
         } else {
-            return YGValueAuto
+            return FILTValueAuto
         }
     }
 }

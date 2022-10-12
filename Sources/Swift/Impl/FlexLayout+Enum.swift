@@ -14,168 +14,168 @@
 
 import UIKit
 
-import FlexLayoutYoga
+import FlexLayoutFilates
 
-extension YGFlexDirection {
-    static let column = YGFlexDirectionColumn
-    static let columnReverse = YGFlexDirectionColumnReverse
-    static let row = YGFlexDirectionRow
-    static let rowReverse = YGFlexDirectionRowReverse
+extension FILTFlexDirection {
+    static let column = FILTFlexDirectionColumn
+    static let columnReverse = FILTFlexDirectionColumnReverse
+    static let row = FILTFlexDirectionRow
+    static let rowReverse = FILTFlexDirectionRowReverse
 }
 
-extension YGJustify {
-    static let flexStart = YGJustifyFlexStart
-    static let center = YGJustifyCenter
-    static let flexEnd = YGJustifyFlexEnd
-    static let spaceBetween = YGJustifySpaceBetween
-    static let spaceAround = YGJustifySpaceAround
-    static let spaceEvenly = YGJustifySpaceEvenly
+extension FILTJustify {
+    static let flexStart = FILTJustifyFlexStart
+    static let center = FILTJustifyCenter
+    static let flexEnd = FILTJustifyFlexEnd
+    static let spaceBetween = FILTJustifySpaceBetween
+    static let spaceAround = FILTJustifySpaceAround
+    static let spaceEvenly = FILTJustifySpaceEvenly
 }
 
-extension YGAlign {
-    static let auto = YGAlignAuto
-    static let baseline = YGAlignBaseline
-    static let stretch = YGAlignStretch
-    static let flexStart = YGAlignFlexStart
-    static let center = YGAlignCenter
-    static let flexEnd = YGAlignFlexEnd
-    static let spaceBetween = YGAlignSpaceBetween
-    static let spaceAround = YGAlignSpaceAround
+extension FILTAlign {
+    static let auto = FILTAlignAuto
+    static let baseline = FILTAlignBaseline
+    static let stretch = FILTAlignStretch
+    static let flexStart = FILTAlignFlexStart
+    static let center = FILTAlignCenter
+    static let flexEnd = FILTAlignFlexEnd
+    static let spaceBetween = FILTAlignSpaceBetween
+    static let spaceAround = FILTAlignSpaceAround
 }
 
-extension YGWrap {
-    static let noWrap = YGWrapNoWrap
-    static let wrap = YGWrapWrap
-    static let wrapReverse = YGWrapWrapReverse
+extension FILTWrap {
+    static let noWrap = FILTWrapNoWrap
+    static let wrap = FILTWrapWrap
+    static let wrapReverse = FILTWrapWrapReverse
 }
 
-extension YGPositionType {
-    static let relative = YGPositionTypeRelative
-    static let absolute = YGPositionTypeAbsolute
+extension FILTPositionType {
+    static let relative = FILTPositionTypeRelative
+    static let absolute = FILTPositionTypeAbsolute
 }
 
-extension YGDirection {
-    static let LTR = YGDirectionLTR
-    static let RTL = YGDirectionRTL
-    static let inherit = YGDirectionInherit
+extension FILTDirection {
+    static let LTR = FILTDirectionLTR
+    static let RTL = FILTDirectionRTL
+    static let inherit = FILTDirectionInherit
 }
 
-extension YGDisplay {
-    static let flex = YGDisplayFlex
-    static let none = YGDisplayNone
+extension FILTDisplay {
+    static let flex = FILTDisplayFlex
+    static let none = FILTDisplayNone
 }
 
-extension YGUnit {
-    static let percent = YGUnitPercent
-    static let point = YGUnitPoint
+extension FILTUnit {
+    static let percent = FILTUnitPercent
+    static let point = FILTUnitPoint
 }
 
 extension Flex.Direction {
-    var yogaValue: YGFlexDirection {
+    var filatesValue: FILTFlexDirection {
         switch self {
-        case .column:        return YGFlexDirection.column
-        case .columnReverse: return YGFlexDirection.columnReverse
-        case .row:           return YGFlexDirection.row
-        case .rowReverse:    return YGFlexDirection.rowReverse
+        case .column:        return FILTFlexDirection.column
+        case .columnReverse: return FILTFlexDirection.columnReverse
+        case .row:           return FILTFlexDirection.row
+        case .rowReverse:    return FILTFlexDirection.rowReverse
         }
     }
 }
 
 extension Flex.JustifyContent {
-    var yogaValue: YGJustify {
+    var filatesValue: FILTJustify {
         switch self {
-        case .start:        return YGJustify.flexStart
-        case .center:       return YGJustify.center
-        case .end:          return YGJustify.flexEnd
-        case .spaceBetween: return YGJustify.spaceBetween
-        case .spaceAround:  return YGJustify.spaceAround
-        case .spaceEvenly:  return YGJustify.spaceEvenly
+        case .start:        return FILTJustify.flexStart
+        case .center:       return FILTJustify.center
+        case .end:          return FILTJustify.flexEnd
+        case .spaceBetween: return FILTJustify.spaceBetween
+        case .spaceAround:  return FILTJustify.spaceAround
+        case .spaceEvenly:  return FILTJustify.spaceEvenly
         }
     }
 }
 
 extension Flex.AlignContent {
-    var yogaValue: YGAlign {
+    var filatesValue: FILTAlign {
         switch self {
-        case .stretch:      return YGAlign.stretch
-        case .start:        return YGAlign.flexStart
-        case .center:       return YGAlign.center
-        case .end:          return YGAlign.flexEnd
-        case .spaceBetween: return YGAlign.spaceBetween
-        case .spaceAround:  return YGAlign.spaceAround
+        case .stretch:      return FILTAlign.stretch
+        case .start:        return FILTAlign.flexStart
+        case .center:       return FILTAlign.center
+        case .end:          return FILTAlign.flexEnd
+        case .spaceBetween: return FILTAlign.spaceBetween
+        case .spaceAround:  return FILTAlign.spaceAround
         }
     }
 }
 
 extension Flex.AlignItems {
-    var yogaValue: YGAlign {
+    var filatesValue: FILTAlign {
         switch self {
-        case .stretch:      return YGAlign.stretch
-        case .start:        return YGAlign.flexStart
-        case .center:       return YGAlign.center
-        case .end:          return YGAlign.flexEnd
-        case .baseline:     return YGAlign.baseline
+        case .stretch:      return FILTAlign.stretch
+        case .start:        return FILTAlign.flexStart
+        case .center:       return FILTAlign.center
+        case .end:          return FILTAlign.flexEnd
+        case .baseline:     return FILTAlign.baseline
         }
     }
 }
 
 extension Flex.AlignSelf {
-    var yogaValue: YGAlign {
+    var filatesValue: FILTAlign {
         switch self {
-        case .auto:         return YGAlign.auto
-        case .stretch:      return YGAlign.stretch
-        case .start:        return YGAlign.flexStart
-        case .center:       return YGAlign.center
-        case .end:          return YGAlign.flexEnd
-        case .baseline:     return YGAlign.baseline
+        case .auto:         return FILTAlign.auto
+        case .stretch:      return FILTAlign.stretch
+        case .start:        return FILTAlign.flexStart
+        case .center:       return FILTAlign.center
+        case .end:          return FILTAlign.flexEnd
+        case .baseline:     return FILTAlign.baseline
         }
     }
 }
 
 extension Flex.Wrap {
-    var yogaValue: YGWrap {
+    var filatesValue: FILTWrap {
         switch self {
-        case .noWrap:      return YGWrap.noWrap
-        case .wrap:        return YGWrap.wrap
-        case .wrapReverse: return YGWrap.wrapReverse
+        case .noWrap:      return FILTWrap.noWrap
+        case .wrap:        return FILTWrap.wrap
+        case .wrapReverse: return FILTWrap.wrapReverse
         }
     }
 }
 
 extension Flex.Position {
-    var yogaValue: YGPositionType {
+    var filatesValue: FILTPositionType {
         switch self {
-        case .relative: return YGPositionType.relative
-        case .absolute: return YGPositionType.absolute
+        case .relative: return FILTPositionType.relative
+        case .absolute: return FILTPositionType.absolute
         }
     }
 }
 
 extension Flex.LayoutDirection {
-    var yogaValue: YGDirection {
+    var filatesValue: FILTDirection {
         switch self {
-        case .ltr: return YGDirection.LTR
-        case .rtl: return YGDirection.RTL
-        default:   return YGDirection.inherit
+        case .ltr: return FILTDirection.LTR
+        case .rtl: return FILTDirection.RTL
+        default:   return FILTDirection.inherit
         }
     }
 }
 
 extension Flex.Display {
-    var yogaValue: YGDisplay {
+    var filatesValue: FILTDisplay {
         switch self {
-        case .flex: return YGDisplay.flex
-        case .none: return YGDisplay.none
+        case .flex: return FILTDisplay.flex
+        case .none: return FILTDisplay.none
         }
     }
 }
 
 /*extension Flex.Overflow {
-    var yogaValue: YGOverflow {
+    var filatesValue: FILTOverflow {
         switch self {
-        case .visible: return YGOverflow.visible
-        case .hidden:  return YGOverflow.hidden
-        case .scroll:  return YGOverflow.scroll
+        case .visible: return FILTOverflow.visible
+        case .hidden:  return FILTOverflow.hidden
+        case .scroll:  return FILTOverflow.scroll
         }
     }
 }*/

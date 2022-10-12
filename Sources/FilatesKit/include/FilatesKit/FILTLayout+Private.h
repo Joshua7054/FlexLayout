@@ -5,16 +5,16 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import "YGLayout.h"
+#import "FILTLayout.h"
 #if FLEXLAYOUT_SWIFT_PACKAGE
-#import <yoga/Yoga.h>
+#import <filates/Filates.h>
 #else
-#import "Yoga.h"
+#import "Filates.h"
 #endif
 
-@interface YGLayout ()
+@interface FILTLayout ()
 
-@property (nonatomic, assign, readonly) YGNodeRef node;
+@property (nonatomic, assign, readonly) FILTNodeRef node;
 
 - (instancetype)initWithView:(UIView *)view;
 
